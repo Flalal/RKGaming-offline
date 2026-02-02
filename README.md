@@ -22,12 +22,6 @@ All RK Gaming keyboards with Vendor ID `0x1CA2` (7330), including:
 
 ## Requirements
 
-### Option A: Desktop App (Electron) - Recommended
-
-- **Node.js** (v18 or later)
-
-### Option B: Browser
-
 - **Node.js** (v18 or later)
 - **Google Chrome** or **Microsoft Edge** (WebHID support required)
 
@@ -36,28 +30,11 @@ All RK Gaming keyboards with Vendor ID `0x1CA2` (7330), including:
 ```bash
 git clone https://github.com/Flalal/RKGaming-offline.git
 cd RKGaming-offline
-npm install
 ```
+
+No npm dependencies required.
 
 ## Usage
-
-### Option A: Desktop App (Electron) - Recommended
-
-```bash
-npm start
-```
-
-The app opens directly with full WebHID support. No browser needed, no certificate warning, no manual device selection - the RK keyboard is detected automatically.
-
-To build a standalone Windows .exe installer:
-
-```bash
-npm run build
-```
-
-The installer will be generated in the `dist/` folder.
-
-### Option B: Browser (legacy)
 
 1. Start the local server:
 
@@ -77,12 +54,6 @@ https://localhost:8443
 
 ## How It Works
 
-### Electron (Desktop App)
-
-The Electron app embeds a local HTTP server and loads the configurator in a Chromium window. WebHID permissions are automatically granted for RK Gaming devices (Vendor ID `0x1CA2`), so the keyboard is connected without any browser picker dialog.
-
-### Browser
-
 The project serves the original RK Gaming web configurator locally via a Node.js HTTPS server. The app uses the [WebHID API](https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API) to communicate directly with the keyboard over USB.
 
 WebHID requires a secure context (HTTPS or localhost), which is why the server generates a self-signed SSL certificate on first run.
@@ -100,10 +71,7 @@ WebHID requires a secure context (HTTPS or localhost), which is why the server g
 ```
 RKGaming-offline/
 ├── index.html                          # Entry point
-├── main.js                             # Electron main process
-├── preload.js                          # Electron preload script
-├── package.json                        # Electron dependencies & build config
-├── server.mjs                          # Node.js HTTPS server (browser mode)
+├── server.mjs                          # Node.js HTTPS server
 ├── index-C3DhiZUV.js                  # Main Vue.js bundle (core + WebHID service)
 ├── ConnectDrivePage-DUGSOpcv.js       # Connection page component
 ├── DeviceSettingPage-K4LopUby.js      # Device configuration page component
