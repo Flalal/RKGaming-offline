@@ -11,13 +11,18 @@ const ROOT = path.dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Z]:
 console.log("ROOT:", ROOT);
 
 const MIME_TYPES = {
-    ".html": "text/html",
-    ".js":   "application/javascript",
-    ".css":  "text/css",
-    ".png":  "image/png",
-    ".svg":  "image/svg+xml",
-    ".ico":  "image/x-icon",
-    ".json": "application/json",
+    ".html":  "text/html",
+    ".js":    "application/javascript",
+    ".css":   "text/css",
+    ".png":   "image/png",
+    ".jpg":   "image/jpeg",
+    ".webp":  "image/webp",
+    ".svg":   "image/svg+xml",
+    ".ico":   "image/x-icon",
+    ".json":  "application/json",
+    ".woff":  "font/woff",
+    ".woff2": "font/woff2",
+    ".ttf":   "font/ttf",
 };
 
 function handler(req, res) {
