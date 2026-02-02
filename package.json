@@ -1,0 +1,42 @@
+{
+  "name": "rkgaming-configurator",
+  "version": "1.0.0",
+  "description": "RK Gaming Keyboard Configurator - Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.rkgaming.configurator",
+    "productName": "RK Gaming Configurator",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "index-*.js",
+      "index-*.css",
+      "ConnectDrivePage-*",
+      "DeviceSettingPage-*",
+      "VBtn-*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
